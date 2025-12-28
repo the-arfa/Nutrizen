@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تفاصيل المنتج</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1 id="title">تفاصيل المنتج</h1>
+  <a href="products.html" class="btn small">العودة للمنتجات</a>
+</header>
+
+<section class="product-detail">
+  <img id="img" src="" alt="Product Image">
+  <p id="desc"></p>
+  <h3 id="price"></h3>
+  <a id="buyBtn" href="#" class="btn">اشتري الآن</a>
+</section>
+
+<script>
+  const products = {
+    1: {
+      title: "مكمل غذائي للقوة والطاقة",
+      desc: "داعم للمناعة والطاقة اليومية.",
+      price: "179 درهم",
+      img: "assets/images/supplement1.jpg",
+      buy: "https://payhip.com/b/supplement1"
+    },
+    2: {
+      title: "زيت طبيعي للجلد والشعر",
+      desc: "ترطيب وتغذية عميقة للبشرة والشعر.",
+      price: "129 درهم",
+      img: "assets/images/oil1.jpg",
+      buy: "https://payhip.com/b/oil1"
+    },
+    3: {
+      title: "كريم عناية بالجسم",
+      desc: "نعومة وتغذية يومية للبشرة.",
+      price: "149 درهم",
+      img: "assets/images/cream1.jpg",
+      buy: "https://payhip.com/b/cream1"
+    },
+    4: {
+      title: "شامبو صحي للشعر",
+      desc: "تنظيف وتقوية للشعر وفروة الرأس.",
+      price: "99 درهم",
+      img: "assets/images/shampoo1.jpg",
+      buy: "https://payhip.com/b/shampoo1"
+    }
+  };
+
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+  const p = products[id];
+
+  if(p){
+    document.getElementById("title").innerText = p.title;
+    document.getElementById("desc").innerText = p.desc;
+    document.getElementById("price").innerText = p.price;
+    document.getElementById("img").src = p.img;
+    document.getElementById("buyBtn").href = p.buy;
+  }
+</script>
+
+</body>
+</html>
